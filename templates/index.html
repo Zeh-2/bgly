@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bgly — Remove Backgrounds Instantly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">✦</span>
+                <span class="logo-text">Bgly</span>
+            </div>
+        </header>
+
+        <main class="main">
+            <section class="hero">
+                <h1 class="hero-title">Remove backgrounds<br><span class="gradient-text">instantly with AI</span></h1>
+                <p class="hero-subtitle">Drop your image and get a clean, transparent PNG in seconds — no signup, no fuss.</p>
+            </section>
+
+            <section class="upload-section" id="uploadSection">
+                <div class="upload-box" id="dropZone">
+                    <input type="file" id="fileInput" accept=".jpg,.jpeg,.png,.webp" class="file-input" aria-label="Upload image">
+                    <div class="upload-content">
+                        <div class="upload-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <rect width="48" height="48" rx="12" fill="#F0F4FF"/>
+                                <path d="M24 14L24 30M24 14L18 20M24 14L30 20" stroke="#4F6EF7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14 34H34" stroke="#4F6EF7" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <p class="upload-label">Drag & drop your image here</p>
+                        <p class="upload-sublabel">or</p>
+                        <button class="btn btn-primary" id="uploadBtn" type="button">Upload Image</button>
+                        <p class="upload-hint">Supports JPG, PNG, WEBP · Max 10MB</p>
+                    </div>
+                </div>
+
+                <div class="shadow-option">
+                    <label class="shadow-toggle" id="shadowToggleLabel">
+                        <input type="checkbox" id="shadowToggle" class="shadow-checkbox">
+                        <div class="toggle-track">
+                            <div class="toggle-thumb"></div>
+                        </div>
+                        <div class="toggle-text">
+                            <span class="toggle-title">Add shadow</span>
+                            <span class="toggle-desc">Professional drop shadow for product photography</span>
+                        </div>
+                    </label>
+                </div>
+            </section>
+
+            <section class="loading-section hidden" id="loadingSection">
+                <div class="loading-card">
+                    <div class="spinner"></div>
+                    <p class="loading-text" id="loadingText">Removing background...</p>
+                    <p class="loading-sub">This may take a few seconds</p>
+                </div>
+            </section>
+
+            <section class="result-section hidden" id="resultSection">
+                <div class="result-header">
+                    <h2 class="result-title">Background removed!</h2>
+                    <p class="result-subtitle" id="resultSubtitle">Here's your result. Download it as a transparent PNG.</p>
+                </div>
+                <div class="result-grid">
+                    <div class="result-card">
+                        <div class="result-card-label">Original</div>
+                        <div class="result-image-wrapper original-bg">
+                            <img id="originalImage" src="" alt="Original image" class="result-image">
+                        </div>
+                    </div>
+                    <div class="result-divider">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-card-label" id="resultCardLabel">Result</div>
+                        <div class="result-image-wrapper checkerboard" id="resultImageWrapper">
+                            <img id="resultImage" src="" alt="Image with background removed" class="result-image">
+                        </div>
+                    </div>
+                </div>
+                <div class="result-actions">
+                    <a id="downloadBtn" href="#" class="btn btn-success" download="bgly-result.png">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 4L12 16M12 16L7 11M12 16L17 11" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4 20H20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        Download PNG
+                    </a>
+                    <button class="btn btn-outline" id="tryAnotherBtn" type="button">
+                        Try another image
+                    </button>
+                </div>
+            </section>
+
+            <section class="error-section hidden" id="errorSection">
+                <div class="error-card">
+                    <div class="error-icon">⚠️</div>
+                    <p class="error-text" id="errorText">Something went wrong. Please try again.</p>
+                    <button class="btn btn-outline" id="tryAgainBtn" type="button">Try again</button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Made with ✦ · Powered by AI background removal</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
